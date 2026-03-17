@@ -16,7 +16,7 @@ const Footer = () => {
               <Gamepad2 className="w-6 h-6 text-primary transition-all duration-300 group-hover:text-secondary" />
             </div>
             <span className="font-display font-bold text-lg tracking-wider">
-              <span className="text-foreground">GAME</span>
+              <span className="text-foreground">LIKHITH</span>
               <span className="text-primary">DEV</span>
             </span>
           </a>
@@ -25,7 +25,7 @@ const Footer = () => {
           <p className="font-body text-sm text-muted-foreground text-center">
             © {currentYear} All rights reserved. Designed & Developed with{' '}
             <span className="text-primary">♥</span> by{' '}
-            <span className="font-display text-foreground">Your Name</span>
+            <span className="font-display text-foreground">Likhith Kumar</span>
           </p>
 
           {/* Back to top */}

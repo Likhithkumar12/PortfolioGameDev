@@ -41,13 +41,13 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight"
           >
-            <span className="text-foreground">Game Developer</span>
+            <span className="text-foreground">Likhith Kumar</span>
             <br />
             <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent neon-text-purple">
-              Turning Ideas into
+              Unity Game Developer
             </span>
             <br />
-            <span className="text-foreground">Playable Worlds</span>
+            <span className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-4xl">Turning Ideas into Playable Worlds</span>
           </motion.h1>
 
           {/* Sub-headline */}
@@ -57,7 +57,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="flex flex-wrap justify-center gap-3 md:gap-4"
           >
-            {['Unity', 'C#', 'Gameplay Systems', 'UI/UX'].map((skill, index) => (
+            {['Unity 2D/3D', 'C#', 'Photon Fusion', 'Multiplayer', 'Gameplay Systems'].map((skill, index) => (
               <span
                 key={skill}
                 className="px-4 py-2 rounded-lg bg-muted/50 border border-border text-muted-foreground font-body text-sm md:text-base"

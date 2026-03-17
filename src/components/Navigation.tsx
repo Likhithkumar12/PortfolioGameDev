@@ -40,7 +40,7 @@ const Navigation = () => {
               <div className="absolute inset-0 blur-lg bg-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
             <span className="font-display font-bold text-xl tracking-wider">
-              <span className="text-foreground">GAME</span>
+              <span className="text-foreground">LIKHITH</span>
               <span className="text-primary">DEV</span>
             </span>
           </a>
