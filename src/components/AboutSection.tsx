@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Code2, Gamepad2, Lightbulb, Zap } from 'lucide-react';
+import { Code2, Gamepad2, Lightbulb, Zap, Wifi, Box } from 'lucide-react';
 import developerAvatar from '@/assets/developer-avatar.jpg';
 
 const AboutSection = () => {
@@ -10,14 +10,15 @@ const AboutSection = () => {
 
   const highlights = [
     { icon: Gamepad2, label: "Unity Expert" },
-    { icon: Code2, label: "C# Developer" },
-    { icon: Lightbulb, label: "Problem Solver" },
+    { icon: Code2, label: "C# / C++" },
+    { icon: Wifi, label: "Multiplayer (Photon)" },
     { icon: Zap, label: "Performance Optimizer" },
+    { icon: Lightbulb, label: "System Architect" },
+    { icon: Box, label: "Physics Systems" },
   ];
 
   return (
     <section id="about" className="py-24 md:py-32 relative overflow-hidden">
-      {/* Background accent */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
       
       <div className="section-container relative z-10">
@@ -31,28 +32,25 @@ const AboutSection = () => {
             className="relative group"
           >
             <div className="relative aspect-square max-w-md mx-auto">
-              {/* Decorative frame */}
               <div className="absolute inset-0 border-2 border-primary/30 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500" />
               <div className="absolute inset-0 border-2 border-secondary/30 rounded-2xl transform -rotate-3 group-hover:-rotate-6 transition-transform duration-500" />
               
-              {/* Main image container */}
               <div className="relative overflow-hidden rounded-2xl glass-card p-2">
                 <div className="aspect-square rounded-xl overflow-hidden">
                   <img 
                     src={developerAvatar} 
-                    alt="Game Developer Profile"
+                    alt="Likhith Kumar - Game Developer"
                     className="w-full h-full object-cover"
                   />
                 </div>
               </div>
 
-              {/* Floating badges */}
               <motion.div
                 animate={{ y: [-5, 5, -5] }}
                 transition={{ duration: 4, repeat: Infinity }}
                 className="absolute -top-4 -right-4 px-4 py-2 glass-card rounded-full border border-primary/30"
               >
-                <span className="font-display text-xs text-primary">5+ Years</span>
+                <span className="font-display text-xs text-primary">CGPA 9.0</span>
               </motion.div>
               
               <motion.div
@@ -60,7 +58,7 @@ const AboutSection = () => {
                 transition={{ duration: 4, repeat: Infinity }}
                 className="absolute -bottom-4 -left-4 px-4 py-2 glass-card rounded-full border border-secondary/30"
               >
-                <span className="font-display text-xs text-secondary">10+ Games</span>
+                <span className="font-display text-xs text-secondary">Juego Studios</span>
               </motion.div>
             </div>
           </motion.div>
@@ -72,35 +70,32 @@ const AboutSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-8"
           >
-            {/* Section Label */}
             <div className="inline-flex items-center gap-2">
               <span className="w-12 h-0.5 bg-gradient-to-r from-primary to-transparent" />
               <span className="font-display text-sm uppercase tracking-widest text-primary">About Me</span>
             </div>
 
-            {/* Title */}
             <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl">
-              Crafting Immersive
+              Building Scalable
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-                Gaming Experiences
+                Multiplayer Worlds
               </span>
             </h2>
 
-            {/* Description */}
             <div className="space-y-4 text-muted-foreground font-body text-lg leading-relaxed">
               <p>
-                I'm a passionate Game Developer with a deep love for creating interactive experiences that captivate players. 
-                With expertise in Unity Engine and C#, I specialize in building robust gameplay systems that are both fun and performant.
+                I'm Likhith Kumar, a Unity Game Developer specializing in real-time multiplayer and 3D gameplay systems. 
+                Currently working at Juego Studios, Bangalore, I design and implement scalable gameplay architectures 
+                using Photon Fusion with strong expertise in physics-based mechanics and performance optimization.
               </p>
               <p>
-                From designing intuitive UI systems to optimizing complex game mechanics, 
-                I bring a detail-oriented approach to every project. 
-                My goal is to push the boundaries of what's possible in game development while maintaining clean, maintainable code.
+                From building modular gameplay systems with ScriptableObjects and event-driven patterns to optimizing 
+                complex multiplayer synchronization, I bring a detail-oriented approach to every project. My goal is to 
+                create engaging, high-performance player experiences with clean, maintainable code.
               </p>
             </div>
 
-            {/* Highlights Grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {highlights.map((item, index) => (
                 <motion.div
                   key={item.label}

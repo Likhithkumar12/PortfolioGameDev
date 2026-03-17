@@ -25,7 +25,7 @@ const Footer = () => {
           <p className="font-body text-sm text-muted-foreground text-center">
             © {currentYear} All rights reserved. Designed & Developed with{' '}
             <span className="text-primary">♥</span> by{' '}
-            <span className="font-display text-foreground">Your Name</span>
+            <span className="font-display text-foreground">Likhith Kumar</span>
           </p>
 
           {/* Back to top */}
