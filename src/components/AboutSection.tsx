@@ -52,14 +52,6 @@ const AboutSection = () => {
               >
                 <span className="font-display text-xs text-primary">Unity Developer</span>
               </motion.div>
-
-              <motion.div
-                animate={{ y: [5, -5, 5] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -bottom-4 -left-4 px-4 py-2 glass-card rounded-full border border-secondary/30"
-              >
-                <span className="font-display text-xs text-secondary">Photon Fusion</span>
-              </motion.div>
             </div>
           </motion.div>
 
