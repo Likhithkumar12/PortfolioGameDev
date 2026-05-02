@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Github, Linkedin, Mail, Phone, Send } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, Send, Gamepad2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
@@ -25,8 +25,9 @@ const ContactSection = () => {
   };
 
   const socialLinks = [
-    { name: 'GitHub', icon: Github, href: 'https://github.com', color: 'hover:text-foreground' },
-    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com', color: 'hover:text-accent' },
+    { name: 'GitHub', icon: Github, href: 'https://github.com/Likhithkumar12', color: 'hover:text-foreground' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/likhith-kumar-315894248/', color: 'hover:text-accent' },
+    { name: 'Itch.io', icon: Gamepad2, href: 'https://likhithkumar12.itch.io/', color: 'hover:text-primary' },
   ];
 
   return (

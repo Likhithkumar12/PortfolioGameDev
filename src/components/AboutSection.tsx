@@ -50,15 +50,15 @@ const AboutSection = () => {
                 transition={{ duration: 4, repeat: Infinity }}
                 className="absolute -top-4 -right-4 px-4 py-2 glass-card rounded-full border border-primary/30"
               >
-                <span className="font-display text-xs text-primary">CGPA 9.0</span>
+                <span className="font-display text-xs text-primary">Unity Developer</span>
               </motion.div>
-              
+
               <motion.div
                 animate={{ y: [5, -5, 5] }}
                 transition={{ duration: 4, repeat: Infinity }}
                 className="absolute -bottom-4 -left-4 px-4 py-2 glass-card rounded-full border border-secondary/30"
               >
-                <span className="font-display text-xs text-secondary">Juego Studios</span>
+                <span className="font-display text-xs text-secondary">Photon Fusion</span>
               </motion.div>
             </div>
           </motion.div>
@@ -84,9 +84,9 @@ const AboutSection = () => {
 
             <div className="space-y-4 text-muted-foreground font-body text-lg leading-relaxed">
               <p>
-                I'm Likhith Kumar, a Unity Game Developer specializing in real-time multiplayer and 3D gameplay systems. 
-                Currently working at Juego Studios, Bangalore, I design and implement scalable gameplay architectures 
-                using Photon Fusion with strong expertise in physics-based mechanics and performance optimization.
+                I'm Likhith Kumar, a Unity Game Developer specializing in real-time multiplayer and 3D gameplay systems.
+                I design and implement scalable gameplay architectures using Photon Fusion with strong expertise in
+                physics-based mechanics and performance optimization.
               </p>
               <p>
                 From building modular gameplay systems with ScriptableObjects and event-driven patterns to optimizing 
