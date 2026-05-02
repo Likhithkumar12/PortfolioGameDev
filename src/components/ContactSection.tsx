@@ -15,13 +15,25 @@ const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    const name = String(formData.get('name') || '').trim();
+    const email = String(formData.get('email') || '').trim();
+    const message = String(formData.get('message') || '').trim();
+
+    const subject = `Portfolio contact from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+    const mailto = `mailto:likhithkulal0@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailto;
+
     toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon!",
+      title: "Opening your mail app...",
+      description: "Send the email to deliver it straight to my inbox.",
     });
     setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+    form.reset();
   };
 
   const socialLinks = [
@@ -80,7 +92,12 @@ const ContactSection = () => {
               </div>
               <div>
                 <p className="font-display text-sm text-muted-foreground">Email me at</p>
-                <a href="mailto:likhithkulal0@gmail.com" className="font-body text-lg hover:text-primary transition-colors">
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=likhithkulal0@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-body text-lg hover:text-primary transition-colors"
+                >
                   likhithkulal0@gmail.com
                 </a>
               </div>
