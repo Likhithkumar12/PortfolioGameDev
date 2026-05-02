@@ -22,7 +22,7 @@ const ExperienceSection = () => {
       id: 1,
       type: 'work',
       title: 'Unity Game Developer',
-      company: 'Juego Studios Pvt. Ltd., Bangalore',
+      company: 'Bangalore, India',
       date: 'Feb 2025 – Present',
       description: 'Designing and developing scalable 2D/3D gameplay systems with real-time multiplayer architecture.',
       highlights: [
@@ -40,7 +40,7 @@ const ExperienceSection = () => {
       title: 'B.E. Computer Science & Engineering',
       company: 'AJ Institute of Engineering and Technology, Mangalore',
       date: 'May 2025',
-      description: 'Graduated with CGPA 9.0, strong foundation in data structures, algorithms, and software engineering.',
+      description: 'Strong foundation in data structures, algorithms, and software engineering.',
     },
     {
       id: 3,
@@ -62,7 +62,7 @@ const ExperienceSection = () => {
       title: 'Pre-University (PCMC)',
       company: 'Parijnan PU College, Mangalore',
       date: 'May 2021',
-      description: 'Scored 97.83% in Pre-University examinations with Physics, Chemistry, Mathematics, and Computer Science.',
+      description: 'Completed Pre-University with Physics, Chemistry, Mathematics, and Computer Science.',
     },
   ];
 
