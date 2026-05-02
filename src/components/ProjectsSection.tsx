@@ -1,56 +1,49 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { ExternalLink, Github, Play, X } from 'lucide-react';
+import { useRef } from 'react';
+import { Gamepad2, Github, PersonStanding, Footprints } from 'lucide-react';
 import { Button } from './ui/button';
-
-import projectCosmicRaider from '@/assets/project-cosmic-raider.jpg';
-import projectKingdomBuilder from '@/assets/project-kingdom-builder.jpg';
-import projectNeonRunner from '@/assets/project-neon-runner.jpg';
 
 interface Project {
   id: number;
   title: string;
   description: string;
-  thumbnail: string;
+  icon: typeof Gamepad2;
   techStack: string[];
-  videoUrl?: string;
   githubUrl?: string;
-  liveUrl?: string;
   featured?: boolean;
 }
 
 const ProjectsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const projects: Project[] = [
     {
       id: 1,
-      title: "Royal Run",
-      description: "Endless runner game with procedural level generation for dynamic gameplay. Features object pooling for reduced memory allocation, power-ups, scoring system, and polished UI built with Unity Canvas and TextMeshPro.",
-      thumbnail: projectNeonRunner,
-      techStack: ["Unity", "C#", "Object Pooling", "TextMeshPro", "Canvas UI"],
-      githubUrl: "#",
+      title: "CarLeague",
+      description: "Fast-paced multiplayer vehicle game inspired by Rocket League. Built real-time networking with Photon Fusion, arcade vehicle physics, client-server architecture for state sync and latency handling, plus goal scoring and tick-based optimization.",
+      icon: Gamepad2,
+      techStack: ["Unity", "C#", "Photon Fusion", "Multiplayer", "Physics"],
+      githubUrl: "https://github.com/Likhithkumar12/CarLeague.git",
       featured: true,
     },
     {
       id: 2,
-      title: "Realm Rush",
-      description: "Tower defense game with strategic tower placement and real-time combat systems. Features NavMesh-based pathfinding for intelligent enemy AI, progression systems with increasing difficulty and resource management.",
-      thumbnail: projectKingdomBuilder,
-      techStack: ["Unity", "C#", "NavMesh", "AI State Machines"],
-      githubUrl: "#",
+      title: "Advanced Character Controller",
+      description: "Custom Unity character controller delivering smooth, physics-based movement beyond Unity's defaults. Features state-based architecture (idle, moving, jumping), camera-relative control, and a modular reusable design optimized for performance.",
+      icon: PersonStanding,
+      techStack: ["Unity", "C#", "Physics", "State Machine", "Modular"],
+      githubUrl: "https://github.com/Likhithkumar12/Advanced-Character-Controller-Unity-.git",
       featured: true,
     },
     {
       id: 3,
-      title: "Rocket Boost",
-      description: "3D physics-based game with realistic movement using Unity Rigidbody. Features collision handling, level progression, restart systems, and multiple levels with increasing difficulty and responsive controls.",
-      thumbnail: projectCosmicRaider,
-      techStack: ["Unity", "C#", "Rigidbody Physics", "Collisions"],
-      githubUrl: "#",
+      title: "Royal Run",
+      description: "Endless runner with procedurally generated environments, lane switching, jumping, and obstacle avoidance. Includes object pooling for performance, dynamic difficulty progression, and a score & reward system to drive engagement.",
+      icon: Footprints,
+      techStack: ["Unity", "C#", "Procedural Gen", "Object Pooling"],
+      githubUrl: "https://github.com/Likhithkumar12/RoyalRun.git",
     },
   ];
 
@@ -89,43 +82,22 @@ const ProjectsSection = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative rounded-2xl overflow-hidden glass-card border border-border/50 hover:border-primary/50 transition-all duration-500"
             >
-              <div className="relative aspect-video overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/20" />
-                <img
-                  src={project.thumbnail}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                
-                <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                  {project.githubUrl && (
-                    <Button variant="outline" size="icon" asChild>
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-5 h-5" />
-                      </a>
-                    </Button>
-                  )}
-                  {project.liveUrl && (
-                    <Button variant="neon" size="icon" asChild>
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-5 h-5" />
-                      </a>
-                    </Button>
+              <div className="p-6 space-y-4">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="p-3 rounded-xl bg-primary/10 text-primary border border-primary/30 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                    <project.icon className="w-6 h-6" />
+                  </div>
+                  {project.featured && (
+                    <span className="px-3 py-1 rounded-full bg-primary/90 text-primary-foreground text-xs font-display">
+                      Featured
+                    </span>
                   )}
                 </div>
 
-                {project.featured && (
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary/90 text-primary-foreground text-xs font-display">
-                    Featured
-                  </div>
-                )}
-              </div>
-
-              <div className="p-6 space-y-4">
                 <h3 className="font-display font-semibold text-xl group-hover:text-primary transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground font-body text-sm line-clamp-3">
+                <p className="text-muted-foreground font-body text-sm leading-relaxed">
                   {project.description}
                 </p>
 
@@ -139,6 +111,15 @@ const ProjectsSection = () => {
                     </span>
                   ))}
                 </div>
+
+                {project.githubUrl && (
+                  <Button variant="outline" size="sm" asChild className="w-full">
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                      <Github className="w-4 h-4 mr-2" />
+                      View on GitHub
+                    </a>
+                  </Button>
+                )}
               </div>
 
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
