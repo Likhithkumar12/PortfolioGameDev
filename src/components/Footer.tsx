@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none" />
 
       <div className="section-container relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex flex-row items-center justify-between gap-4">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
             <div className="relative">
@@ -20,13 +20,6 @@ const Footer = () => {
               <span className="text-primary">DEV</span>
             </span>
           </a>
-
-          {/* Copyright */}
-          <p className="font-body text-sm text-muted-foreground text-center">
-            © {currentYear} All rights reserved. Designed & Developed with{' '}
-            <span className="text-primary">♥</span> by{' '}
-            <span className="font-display text-foreground">Likhith Kumar</span>
-          </p>
 
           {/* Back to top */}
           <a
