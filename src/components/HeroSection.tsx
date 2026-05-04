@@ -44,7 +44,7 @@ const HeroSection = () => {
             <span className="text-foreground">Likhith Kumar</span>
             <br />
             <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent neon-text-purple">
-              Unity Game Developer
+              Game Developer
             </span>
             <br />
             <span className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-4xl">Turning Ideas into Playable Worlds</span>
