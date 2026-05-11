@@ -1,10 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { 
-  Code2, Cpu, Gamepad2, GitBranch, 
-  Monitor, Palette, Settings, Wifi 
-} from 'lucide-react';
+import { Code2, Cpu, Gamepad2, Settings, Palette, Wifi } from 'lucide-react';
 
 const SkillsSection = () => {
   const ref = useRef(null);
@@ -15,74 +12,59 @@ const SkillsSection = () => {
       title: "Game Engines & Dev",
       icon: Gamepad2,
       color: "primary",
-      skills: [
-        { name: "Unity (2D/3D)", level: 95 },
-        { name: "Gameplay Programming", level: 92 },
-        { name: "Physics (Rigidbody, Joints)", level: 90 },
-      ]
+      skills: ["Unity 2D/3D", "Gameplay Programming", "Physics (Rigidbody, Joints)", "Cinemachine"],
     },
     {
       title: "Programming",
       icon: Code2,
       color: "secondary",
-      skills: [
-        { name: "C#", level: 95 },
-        { name: "C++", level: 70 },
-        { name: "OOP & Design Patterns", level: 90 },
-      ]
+      skills: ["C#", "C++", "OOP & Design Patterns", "SOLID Principles"],
     },
     {
       title: "Multiplayer",
       icon: Wifi,
       color: "accent",
-      skills: [
-        { name: "Photon Fusion", level: 90 },
-        { name: "Client-Server Architecture", level: 85 },
-        { name: "Network Sync & Latency", level: 85 },
-      ]
+      skills: ["Photon Fusion", "Client-Server Architecture", "Network Sync", "Latency Handling"],
     },
     {
       title: "Gameplay Systems",
       icon: Cpu,
-      color: "neon-cyan",
-      skills: [
-        { name: "AI (State Machines, NavMesh)", level: 88 },
-        { name: "Player Controllers", level: 95 },
-        { name: "ScriptableObjects / ECS", level: 85 },
-      ]
+      color: "primary",
+      skills: ["AI (State Machines, NavMesh)", "Player Controllers", "ScriptableObjects", "ECS / DOTS"],
     },
     {
       title: "UI & Animation",
       icon: Palette,
-      color: "neon-purple",
-      skills: [
-        { name: "Unity Canvas & UI Toolkit", level: 90 },
-        { name: "Cinemachine & Animation", level: 85 },
-        { name: "TextMeshPro / Responsive UI", level: 88 },
-      ]
+      color: "secondary",
+      skills: ["Unity Canvas", "UI Toolkit", "TextMeshPro", "Animator & DOTween"],
     },
     {
       title: "Tools & Optimization",
       icon: Settings,
-      color: "neon-blue",
-      skills: [
-        { name: "Git & Rider", level: 92 },
-        { name: "Unity Profiler & Debugging", level: 88 },
-        { name: "Object Pooling & Addressables", level: 85 },
-      ]
+      color: "accent",
+      skills: ["Git & Rider", "Unity Profiler", "Object Pooling", "Addressables"],
     },
   ];
 
   const getColorClasses = (color: string) => {
-    const colors: Record<string, { bg: string; text: string; glow: string; bar: string }> = {
-      primary: { bg: "bg-primary/10", text: "text-primary", glow: "shadow-[0_0_20px_hsl(var(--neon-purple)/0.3)]", bar: "from-primary to-primary/60" },
-      secondary: { bg: "bg-secondary/10", text: "text-secondary", glow: "shadow-[0_0_20px_hsl(var(--neon-cyan)/0.3)]", bar: "from-secondary to-secondary/60" },
-      accent: { bg: "bg-accent/10", text: "text-accent", glow: "shadow-[0_0_20px_hsl(var(--neon-blue)/0.3)]", bar: "from-accent to-accent/60" },
-      "neon-cyan": { bg: "bg-neon-cyan/10", text: "text-neon-cyan", glow: "shadow-[0_0_20px_hsl(var(--neon-cyan)/0.3)]", bar: "from-neon-cyan to-neon-cyan/60" },
-      "neon-purple": { bg: "bg-neon-purple/10", text: "text-neon-purple", glow: "shadow-[0_0_20px_hsl(var(--neon-purple)/0.3)]", bar: "from-neon-purple to-neon-purple/60" },
-      "neon-blue": { bg: "bg-neon-blue/10", text: "text-neon-blue", glow: "shadow-[0_0_20px_hsl(var(--neon-blue)/0.3)]", bar: "from-neon-blue to-neon-blue/60" },
+    const map: Record<string, { icon: string; tag: string; border: string }> = {
+      primary: {
+        icon: "bg-primary/10 text-primary border border-primary/30",
+        tag: "bg-primary/10 text-primary",
+        border: "hover:border-primary/50",
+      },
+      secondary: {
+        icon: "bg-secondary/10 text-secondary border border-secondary/30",
+        tag: "bg-secondary/10 text-secondary",
+        border: "hover:border-secondary/50",
+      },
+      accent: {
+        icon: "bg-accent/10 text-accent border border-accent/30",
+        tag: "bg-accent/10 text-accent",
+        border: "hover:border-accent/50",
+      },
     };
-    return colors[color] || colors.primary;
+    return map[color] || map.primary;
   };
 
   return (
@@ -112,40 +94,41 @@ const SkillsSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category, catIndex) => {
-            const colorClasses = getColorClasses(category.color);
+          {skillCategories.map((category, index) => {
+            const colors = getColorClasses(category.color);
             return (
               <motion.div
                 key={category.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: catIndex * 0.1 }}
-                className={`group p-6 rounded-2xl glass-card border border-border/50 hover:border-primary/30 transition-all duration-500 hover:${colorClasses.glow}`}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`group relative rounded-2xl overflow-hidden glass-card border border-border/50 ${colors.border} transition-all duration-500 p-6 space-y-4`}
               >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`p-3 rounded-xl ${colorClasses.bg} ${colorClasses.text} transition-all duration-300`}>
-                    <category.icon className="w-6 h-6" />
+                {/* Header */}
+                <div className="flex items-center gap-3">
+                  <div className={`p-3 rounded-xl ${colors.icon} group-hover:scale-110 transition-transform duration-300`}>
+                    <category.icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-display font-semibold text-lg">{category.title}</h3>
+                  <h3 className="font-display font-semibold text-lg group-hover:text-primary transition-colors duration-300">
+                    {category.title}
+                  </h3>
                 </div>
 
-                <div className="space-y-4">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skill.name} className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span className="font-body text-sm text-muted-foreground">{skill.name}</span>
-                        <span className={`font-display text-xs ${colorClasses.text}`}>{skill.level}%</span>
-                      </div>
-                      <div className="skill-bar">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
-                          transition={{ duration: 1, delay: 0.3 + catIndex * 0.1 + skillIndex * 0.1 }}
-                          className={`skill-bar-fill bg-gradient-to-r ${colorClasses.bar}`}
-                        />
-                      </div>
-                    </div>
+                {/* Skill Tags */}
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-body font-medium ${colors.tag}`}
+                    >
+                      {skill}
+                    </span>
                   ))}
+                </div>
+
+                {/* Hover glow */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                  <div className="absolute inset-0 rounded-2xl shadow-[inset_0_0_30px_hsl(var(--neon-purple)/0.15)]" />
                 </div>
               </motion.div>
             );

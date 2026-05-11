@@ -57,8 +57,8 @@ const Navigation = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300" />
               </a>
             ))}
-            <Button variant="outline" size="sm">
-              Resume
+            <Button variant="outline" size="sm" asChild>
+              <a href="./resume.pdf" download="Likhith_Kumar_Resume.pdf">Resume</a>
             </Button>
           </div>
 
@@ -90,8 +90,8 @@ const Navigation = () => {
                   {item.name}
                 </a>
               ))}
-              <Button variant="outline" size="sm" className="w-full">
-                Resume
+              <Button variant="outline" size="sm" className="w-full" asChild>
+                <a href="./resume.pdf" download="Likhith_Kumar_Resume.pdf">Resume</a>
               </Button>
             </div>
           </motion.div>

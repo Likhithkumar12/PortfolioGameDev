@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Gamepad2, FileText } from 'lucide-react';
 import { Button } from './ui/button';
 import ParticleBackground from './ParticleBackground';
 
@@ -77,8 +77,17 @@ const HeroSection = () => {
             <Button variant="hero" size="lg" asChild>
               <a href="#projects">View Projects</a>
             </Button>
-            <Button variant="heroOutline" size="lg" asChild>
-              <a href="#contact">Contact Me</a>
+            <Button variant="heroOutline" size="lg" asChild className="group">
+              <a href="https://likhithkumar12.itch.io/" target="_blank" rel="noopener noreferrer">
+                <Gamepad2 className="w-5 h-5 mr-2 transition-transform group-hover:scale-110" />
+                Play My Games
+              </a>
+            </Button>
+            <Button variant="outline" size="lg" asChild className="bg-background/50">
+              <a href="./resume.pdf" download="Likhith_Kumar_Resume.pdf" className="flex items-center">
+                <FileText className="w-5 h-5 mr-2" />
+                Resume
+              </a>
             </Button>
           </motion.div>
         </motion.div>
